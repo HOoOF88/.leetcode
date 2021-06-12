@@ -12,6 +12,7 @@
 class Solution {
 public:
     int change(int amount, vector<int>& coins) {
+        
         int a[amount+1] ;
         memset(a,0,sizeof(a));
         a[0] = 1;
