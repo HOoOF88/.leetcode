@@ -6,6 +6,8 @@
 using namespace std;
 // @before-stub-for-debug-end
 
+
+
 /*
  * @lc app=leetcode.cn id=20 lang=cpp
  *
@@ -13,6 +15,8 @@ using namespace std;
  */
 
 // @lc code=start
+#include <bits/stdc++.h>
+using namespace std;
 class Solution
 {
 public:
@@ -22,20 +26,23 @@ public:
 
         int l = s.length();
         int i = 0;
-        if (l == 1)
-            return false;
-        while (i < l)
+        if(l==1) return false;
+        while(i<l)
         {
-            if (s[i] == '(' || s[i] == '[' || s[i] == '{')
+            if(s[i] == '(' || s[i] == '[' || s[i] == '{')
             {
                 st.push(s[i]);
             }
             else
-            {
+            {   
+                if(st.empty())
+                {
+                    return false;
+                }
                 bool a = s[i] == ')' && st.top() == '(';
                 bool b = s[i] == '}' && st.top() == '{';
                 bool c = s[i] == ']' && st.top() == '[';
-                if (a || b || c)
+                if( a||b||c )
                 {
                     st.pop();
                 }
@@ -46,7 +53,7 @@ public:
             }
             i++;
         }
-        if (st.empty())
+        if(st.empty())
         {
             return true;
         }
